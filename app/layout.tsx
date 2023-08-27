@@ -1,3 +1,4 @@
+import Modal from "@/components/Modal";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
             "
             >
                 {children}
+                <Modal />
             </body>
         </html>
     );

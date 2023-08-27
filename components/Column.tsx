@@ -3,6 +3,7 @@ import { Todo, TypedColumn } from "@/typings";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 import TodoCard from "./TodoCard";
 import { useBoardStore } from "@/store/BoardStore";
+import { useModalStore } from "@/store/ModalStore";
 
 type Props = {
     id: TypedColumn;
@@ -20,6 +21,7 @@ const idToColumnText: {
 
 function ColumnComp({ id, todos, index }: Props) {
     const [searchString] = useBoardStore((state) => [state.searchString]);
+    const openModal = useModalStore((state) => state.openModal);
 
     return (
         <Draggable
@@ -112,6 +114,7 @@ function ColumnComp({ id, todos, index }: Props) {
                                         "
                                     >
                                         <button
+                                            onClick={openModal}
                                             className="
                                             text-green-500
                                             hover:text-green-600
